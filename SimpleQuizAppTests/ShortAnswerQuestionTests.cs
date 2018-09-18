@@ -19,7 +19,7 @@ namespace SimpleQuizApplication.Tests
             String strAnswer = "Answer 111";
             Question q = new ShortAnswerQuestion(strQuestion, strAnswer);
 
-            //Act
+            //Action
             String strResult = q.getQuestion();
 
             //Assert
@@ -117,21 +117,75 @@ namespace SimpleQuizApplication.Tests
         [TestMethod()]
         // Many people would suggest that this test is bad since it test two different things
         // Test space before answer and space after answer
-        public void checkAnswer_ExtrasSpaceTest()
+        public void checkAnswer_ExtrasSpaceBeforeTest()
         {
             // Arrange
             String strQuestion = "Test question here?";
             String strAnswer = "Answer to question";
-            String strAnswerWithSpaceAfter = "Answer to question ";
+           // String strAnswerWithSpaceAfter = "Answer to question ";
             String strAnswerWithSpaceBefore = " Answer to question";
             Question q = new ShortAnswerQuestion(strQuestion, strAnswer);
 
             //Act
 
             //Assert
-            Assert.IsTrue(q.checkAnswer(strAnswerWithSpaceAfter));
+            //Assert.IsTrue(q.checkAnswer(strAnswerWithSpaceAfter));
             Assert.IsTrue(q.checkAnswer(strAnswerWithSpaceBefore));
         }
+
+        [TestMethod()]
+        // Many people would suggest that this test is bad since it test two different things
+        // Test space before answer and space after answer
+        public void checkAnswer_ExtrasSpaceAfterTest()
+        {
+            // Arrange
+            String strQuestion = "Test question here?";
+            String strAnswer = "Answer to question";
+            String strAnswerWithSpaceAfter = "Answer to question ";
+           // String strAnswerWithSpaceBefore = " Answer to question";
+            Question q = new ShortAnswerQuestion(strQuestion, strAnswer);
+
+            //Act
+
+            //Assert
+            Assert.IsTrue(q.checkAnswer(strAnswerWithSpaceAfter));
+           // Assert.IsTrue(q.checkAnswer(strAnswerWithSpaceBefore));
+        }
+
+        [TestMethod()]
+        // Many people would suggest that this test is bad since it test two different things
+        // Test space before answer and space after answer
+        public void checkAnswer_ExtrasSpaceMiddleTest()
+        {
+            // Arrange
+            String strQuestion = "Test question here?";
+            String strAnswer = "Answer to question";
+            String strAnswerWithSpaceMiddle = "Answer  to  question ";
+            Question q = new ShortAnswerQuestion(strQuestion, strAnswer);
+
+            //Act
+
+            //Assert
+            Assert.IsTrue(q.checkAnswer(strAnswerWithSpaceMiddle));
+        }
+
+        [TestMethod()]
+        // Many people would suggest that this test is bad since it test two different things
+        // Test space before answer and space after answer
+        public void checkAnswer_ExtrasSpaceTabBeforeTest()
+        {
+            // Arrange
+            String strQuestion = "Test question here?";
+            String strAnswer = "Answer to question";
+            String strAnswerWithTabBefore = "   Answer to question ";
+            Question q = new ShortAnswerQuestion(strQuestion, strAnswer);
+
+            //Act
+
+            //Assert
+            Assert.IsTrue(q.checkAnswer(strAnswerWithTabBefore));
+        }
+
         [TestMethod()]
         public void checkAnswer_WrongAnswerTest()
         {

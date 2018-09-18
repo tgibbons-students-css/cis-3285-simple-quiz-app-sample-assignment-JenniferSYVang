@@ -17,7 +17,7 @@ namespace SimpleQuizApplication
          */
         public ShortAnswerQuestion(string questionText, String answerText) : base(questionText)
         {
-            answer = answerText;
+            answer = (answerText);
         }
 
         /**
@@ -36,7 +36,8 @@ namespace SimpleQuizApplication
          */
         public override bool checkAnswer(String givenAnswer)
         {
-            return (answer.Equals(givenAnswer, StringComparison.InvariantCultureIgnoreCase));
+            String newAnswer = RemoveWhitespace(answer);
+            return (newAnswer.Equals(RemoveWhitespace(givenAnswer), StringComparison.InvariantCultureIgnoreCase));
         }
 
         /// <summary>
